@@ -33,4 +33,6 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 
 ## Architecture
 
-<img src="./assets/stack.png"  width="300"/>
+<img src="./assets/stack.png"  width="500"/>
+
+For inquiries, contact `amaha100@uottawa.ca`
