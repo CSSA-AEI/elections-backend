@@ -30,3 +30,7 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 - `yarn lint` - Scans the repo for any eslint violations
 - `yarn lint:fix` - Fixes eslint violations
 - `yarn prettier` - Reformats code to Prettier standards & fixes eslint violations
+
+## Architecture
+
+<img src="./assets/stack.png"  width="300"/>
