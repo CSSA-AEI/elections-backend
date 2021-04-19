@@ -1,8 +1,22 @@
+/**
+ * vote.controller.ts Handles form submission once a request is received from the Frontend
+ */
+
 import { UserObject } from '../../../model/User';
 import { Request, Response } from 'express';
 import { CallbackError } from 'mongoose';
 
 namespace VoteController {
+  /**
+   * @function Updates the user document in MongoDB with their ballot & date of vote
+   *
+   * If Error, return 500
+   * If No Response (i.e sha value is not found), return 418 as we don't want to handle it
+   * Else, return 201 and provide the user's date of vote
+   *
+   * @param req
+   * @param res
+   */
   export function submit_form(req: Request, res: Response): void {
     const { sha, poll } = req.body;
     const UTC: Date = new Date();

@@ -1,3 +1,7 @@
+/**
+ * User.ts stores the Schema structure of a user
+ */
+
 import { model, Schema, Document, CallbackError } from 'mongoose';
 import bcrypt from 'bcrypt';
 import '../database';
@@ -15,6 +19,9 @@ export interface IUser extends Document {
   isCorrectHash(firstHash: string, callback: any): any;
 }
 
+/**
+ * The PollSchema is made up of the 11 Executive Positions
+ */
 const PollSchema: Schema = new Schema({
   PRES: { type: String, required: true, default: null },
   FNCE: { type: String, required: true, default: null },
@@ -29,6 +36,14 @@ const PollSchema: Schema = new Schema({
   INTE: { type: String, required: true, default: null },
 });
 
+/**
+ * The UserSchema stores:
+ * -- their unique voting ID (a sha256 value)
+ * -- their level 2 hash (their password hashed twice)
+ * -- their level 1 salt (The salt used for slow-client-side hashing)
+ * -- their voting status
+ * -- their time of vote
+ */
 const UserSchema: Schema<Document<IUser>> = new Schema({
   sha: { type: String, required: true, unique: true },
   hash: { type: String, required: true, unique: true },
@@ -38,6 +53,10 @@ const UserSchema: Schema<Document<IUser>> = new Schema({
   poll: { type: PollSchema, default: null },
 });
 
+/**
+ * @function Creates the user's hash & salt fields before saving it in DB
+ * @requires bcrypt
+ */
 UserSchema.pre<IUser>('save', function (next: (err?: CallbackError) => void) {
   // Check if document is new or a new password has been set
   if (this.isNew || this.isModified('hash')) {
@@ -55,6 +74,13 @@ UserSchema.pre<IUser>('save', function (next: (err?: CallbackError) => void) {
   }
 });
 
+/**
+ * @function Checks if the level 1 hash provided is correct
+ *
+ * @param this
+ * @param firstHash
+ * @param callback
+ */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 UserSchema.methods.isCorrectHash = function (this: any, firstHash: string, callback: any) {
   bcrypt.compare(firstHash, this.hash, (err, same) => {
