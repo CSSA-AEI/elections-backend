@@ -1,8 +1,17 @@
+/**
+ * user.controller.ts Handles the fetching of level 1 salts & successful login requests
+ */
+
 import { UserObject, IUser } from '../../../model/User';
 import { Request, Response } from 'express';
 import { CallbackError } from 'mongoose';
 
 namespace UserController {
+  /**
+   * @function Since the voterAuth middleware arleady authenticates the user, all we need to do is return a 200
+   * @param req
+   * @param res
+   */
   export function login(req: Request, res: Response): void {
     res.status(200).send({
       status: 200,
@@ -10,6 +19,16 @@ namespace UserController {
     });
   }
 
+  /**
+   * @function Returns the level 1 salt of a valid user
+   *
+   * If Error, return 500
+   * If No User (i.e sha value is not found in DB), return 418 as we don't want to handle it
+   * Else, return 200 and provide the user's level 1 salt for slow-client-side hashing
+   *
+   * @param req
+   * @param res
+   */
   export function get_salt(req: Request, res: Response): void {
     const { sha }: { sha: string } = req.body;
     UserObject.findOne({ sha }, (err: CallbackError, user: IUser) => {

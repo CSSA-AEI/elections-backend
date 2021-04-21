@@ -1,3 +1,8 @@
+/**
+ * database.ts is in charge of connecting to MongoDB through Mongoose
+ * @requires A valid MONGO_URI Environment Variable
+ */
+
 import mongoose from 'mongoose';
 
 if (process.env.NODE_ENV !== 'production') {

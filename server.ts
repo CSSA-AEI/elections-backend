@@ -19,6 +19,8 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+/** @todo Re-enable the RateLimiter if needed */
 // app.set('trust proxy', 1); // Heroku Rate Limiter Config
 // app.use(rateLimiter);
 

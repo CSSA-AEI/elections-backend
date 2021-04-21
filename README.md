@@ -36,3 +36,11 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 <img src="./assets/stack.png"  width="500"/>
 
 For inquiries, contact `amaha100@uottawa.ca`
+
+## Getting Ready for the Next Election
+
+For any assistance, contact `amaha100@uottawa.ca`.
+
+There are no "required" changes to do in this repository in preparation, as it is abstract enough to deal with remaining CSSA elections. However, it is up to the repo maintainer to make sure that there are no vulnerabilities if they decide to add new features.
+
+That being said, simply verify that the environment variables are correctly set up in the Production Environment of the Heroku Application for this repo.
