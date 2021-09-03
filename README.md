@@ -41,7 +41,7 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 
 For any assistance, contact `amaha100@uottawa.ca`.
 
-### In elections-backend (https://github.com/CSSA-AEI/elections-backend)
+### [elections-backend](https://github.com/CSSA-AEI/elections-backend)
 
 1.  Update `elections-backend/assets/candidates.ts` to include all the candidates running for the current term. Example:
 
@@ -49,9 +49,9 @@ For any assistance, contact `amaha100@uottawa.ca`.
 FNCE: [{ name: 'Omer Abubaker', val: 'abubaker' }]; // `val` is always the candidate's last name
 ```
 
-2. Verify that the environment variables are correctly set up in the Production Environment of the elections-backend Heroku Application (https://dashboard.heroku.com/apps/cssaaei-elections-be/settings).
+2. Verify that the environment variables are correctly set up in the Production & Development Environment of the [elections-backend Heroku Pipeline](https://dashboard.heroku.com/pipelines/6212bfb6-1301-4304-9a8d-76dba1c4de6f).
 
-### In elections-frontend (https://github.com/CSSA-AEI/elections-frontend)
+### [elections-frontend](https://github.com/CSSA-AEI/elections-frontend)
 
 1. Update the `candidatesPage` section in `elections-frontend/src/locale/en.json` and `elections-frontend/src/locale/fr.json`. For each candidate, add their platforms in that object, using their last name as the object key. Example:
 
@@ -67,5 +67,5 @@ FNCE: [{ name: 'Omer Abubaker', val: 'abubaker' }]; // `val` is always the candi
 
 3. Read over all the `en.json` and `fr.json` files and make sure that the election dates are properly included (**no "\_\_\_" underscores left anywhere**).
 
-4. Verify that the environment variables are correctly set up in the Production Environment of the elections-backend Heroku Application (https://dashboard.heroku.com/apps/cssaaei-elections-fe/settings).
+4. Verify that the environment variables are correctly set up in the Production & Development Environments of the [elections-frontend Heroku Pipeline](https://dashboard.heroku.com/pipelines/6a561515-c587-4924-a53d-c787f75db2ce).
 
