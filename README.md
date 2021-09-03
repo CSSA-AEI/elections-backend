@@ -37,12 +37,35 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 
 <img src="./assets/stack.png"  width="500"/>
 
-For inquiries, contact `amaha100@uottawa.ca`
-
 ## Getting Ready for the Next Election
 
 For any assistance, contact `amaha100@uottawa.ca`.
 
-There are no "required" changes to do in this repository in preparation, as it is abstract enough to deal with remaining CSSA elections. However, it is up to the repo maintainer to make sure that there are no vulnerabilities if they decide to add new features.
+### In elections-backend (https://github.com/CSSA-AEI/elections-backend)
 
-That being said, simply verify that the environment variables are correctly set up in the Production Environment of the Heroku Application for this repo.
+1.  Update `elections-backend/assets/candidates.ts` to include all the candidates running for the current term. Example:
+
+```javascript
+FNCE: [{ name: 'Omer Abubaker', val: 'abubaker' }]; // `val` is always the candidate's last name
+```
+
+2. Verify that the environment variables are correctly set up in the Production Environment of the elections-backend Heroku Application (https://dashboard.heroku.com/apps/cssaaei-elections-be/settings).
+
+### In elections-frontend (https://github.com/CSSA-AEI/elections-frontend)
+
+1. Update the `candidatesPage` section in `elections-frontend/src/locale/en.json` and `elections-frontend/src/locale/fr.json`. For each candidate, add their platforms in that object, using their last name as the object key. Example:
+
+```javascript
+"candidatesPage": { // An example of what the en.json file would look like
+    "subtitle": "You can access the platforms of the candidates running for the CSSA 20__-20__ term below.",
+    "abubaker": "Omer's english platform \n This is a new line",
+    "mahanna": "Anthony's english platform"
+}
+```
+
+2. Add the image of each candidate under the `public/candidates/` directory. **The format must be JPG, and must be passed through the following image resizer first:** https://www.onlineresizeimage.com/instagram-profile-picture-resizer/. If the resizer says `image is too small`, then increase the pixel size first through this website: https://www.resizepixel.com/.
+
+3. Read over all the `en.json` and `fr.json` files and make sure that the election dates are properly included (**no "\_\_\_" underscores left anywhere**).
+
+4. Verify that the environment variables are correctly set up in the Production Environment of the elections-backend Heroku Application (https://dashboard.heroku.com/apps/cssaaei-elections-fe/settings).
+

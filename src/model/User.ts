@@ -54,7 +54,7 @@ const UserSchema: Schema<Document<IUser>> = new Schema({
 });
 
 /**
- * @function Creates the user's hash & salt fields before saving it in DB
+ * @function pre() Creates the user's hash & salt fields before saving it in DB
  * @requires bcrypt
  */
 UserSchema.pre<IUser>('save', function (next: (err?: CallbackError) => void) {
@@ -75,7 +75,7 @@ UserSchema.pre<IUser>('save', function (next: (err?: CallbackError) => void) {
 });
 
 /**
- * @function Checks if the level 1 hash provided is correct
+ * @function isCorrectHash() Checks if the level 1 hash provided is correct
  *
  * @param this
  * @param firstHash
