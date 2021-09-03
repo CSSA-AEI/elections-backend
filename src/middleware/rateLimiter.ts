@@ -1,5 +1,5 @@
 /**
- * rateLimiter.ts Is the middleware responsible for limitting API calls
+ * Middleware responsible for limitting API calls
  * @note Currently not being used
  */
 

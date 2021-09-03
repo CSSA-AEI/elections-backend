@@ -1,5 +1,5 @@
 /**
- * User.ts stores the Schema structure of a user
+ * Stores the Schema structure of a user
  */
 
 import { model, Schema, Document, CallbackError } from 'mongoose';

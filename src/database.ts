@@ -1,6 +1,6 @@
 /**
- * database.ts is in charge of connecting to MongoDB through Mongoose
- * @requires A valid MONGO_URI Environment Variable
+ * In charge of connecting to MongoDB through Mongoose
+ * @requires MONGO_URI environment Variable
  */
 
 import mongoose from 'mongoose';

@@ -30,7 +30,9 @@ namespace UserController {
    * @param res
    */
   export function get_salt(req: Request, res: Response): void {
-    const { sha }: { sha: string } = req.body;
+    const sha: string = req.body.sha;
+    if (!sha) res.status(400).send({ status: 400, message: 'Invalid Request: missing sha' });
+
     UserObject.findOne({ sha }, (err: CallbackError, user: IUser) => {
       if (err) {
         console.error(err); // eslint-disable-line no-console

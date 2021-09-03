@@ -12,13 +12,15 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 
 ### User Routes
 
-- POST `/api/salt` with body: `sha` --> Fetches the 1st level salt of the voter for client-side hashing.
+- POST `/api/user/salt` with body: `sha` --> Fetches the 1st level salt of the voter for client-side hashing.
 
-- POST `/api/login` with body: `sha` & `hash` --> (_voterAuth_) --> Authenticates the voter through middleware.
+- POST `/api/user/login` with body: `sha` & `hash` --> (_voterAuth_) --> Authenticates the voter through middleware.
 
 ### Vote Routes
 
-- POST `/api/vote` with body: `sha` & `hash` & `poll` --> (_voterAuth_) --> Inserts the voter's `poll` data in DB.
+- GET `/api/vote/candidates` --> Returns the list of candidates to client.
+
+- POST `/api/vote/submit` with body: `sha` & `hash` & `poll` --> (_voterAuth_) --> Inserts the voter's `poll` data in DB.
 
 ## Scripts
 
