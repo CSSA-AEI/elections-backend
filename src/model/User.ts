@@ -44,7 +44,7 @@ const PollSchema: Schema = new Schema({
  * -- their voting status
  * -- their time of vote
  */
-const UserSchema: Schema<Document<IUser>> = new Schema({
+const UserSchema = new Schema({
   sha: { type: String, required: true, unique: true },
   hash: { type: String, required: true, unique: true },
   salt: { type: String, required: true },
