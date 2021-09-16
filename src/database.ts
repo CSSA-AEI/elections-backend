@@ -12,18 +12,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 const mongo_uri: string = process.env.MONGO_URI!;
 
-// Set mongoose configurations.
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-
 // Connect to MongoDB instance.
 mongoose
-  .connect(mongo_uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  .connect(mongo_uri)
   .then(() => console.log('Database Connected Successfully')) // eslint-disable-line no-console
   .catch(err => {
     console.error(err); // eslint-disable-line no-console
