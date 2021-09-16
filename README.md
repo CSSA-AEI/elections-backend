@@ -1,3 +1,7 @@
+[![dependencies Status](https://status.david-dm.org/gh/cssa-aei/elections-backend.svg)](https://david-dm.org/cssa-aei/elections-backend)
+[![devDependencies Status](https://status.david-dm.org/gh/cssa-aei/elections-backend.svg?type=dev)](https://david-dm.org/cssa-aei/elections-backend?type=dev)
+[![peerDependencies Status](https://status.david-dm.org/gh/cssa-aei/elections-backend.svg?type=peer)](https://david-dm.org/cssa-aei/elections-backend?type=peer)
+
 # Elections Backend
 
 Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
