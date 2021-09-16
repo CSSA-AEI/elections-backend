@@ -1,6 +1,7 @@
 /**
- * voterAuth.ts Is the middleware responsible for voter authentication
- * @requires Valid VOTING_START & VOTING_DEADLINE Environment variables
+ * Middleware responsible for voter authentication
+ * @requires VOTING_START Environment variable
+ * @requires VOTING_DEADLINE Environment variabe
  */
 
 import { UserObject, IUser } from '../model/User';
@@ -16,13 +17,13 @@ const startEST: Date = new Date(process.env.VOTING_START!);
 const deadlineEST: Date = new Date(process.env.VOTING_DEADLINE!);
 
 /**
- * @function Responsible for validating a user's authenticity
- * If voting period has not started, return 403
- * If sha value provided is not found in DB, return 401
- * If hash value provided is not valid for sha, return 401
- * If user has already voted, fetch time of vote & return 200
- * If voting deadline has passed, return 403,
- * Else, call next(), as the middleware has successfully validated the voter
+ * @function voterAuth() Responsible for validating a user's authenticity
+ * - If voting period has not started, return 401
+ * - If sha value provided is not found in DB, return 401
+ * - If hash value provided is not valid for sha, return 401
+ * - If user has already voted, fetch time of vote & return 200
+ * - If voting deadline has passed, return 403,
+ * - Else, call next(), as the middleware has successfully validated the voter
  *
  * @param req
  * @param res

@@ -1,14 +1,24 @@
 /**
- * vote.controller.ts Handles form submission once a request is received from the Frontend
+ * Handles form submission once a request is received from the Frontend
  */
-
-import { UserObject } from '../../../model/User';
 import { Request, Response } from 'express';
 import { CallbackError } from 'mongoose';
+import { UserObject } from '../../../model/User';
+import CANDIDATES from '../../../../assets/candidates';
 
 namespace VoteController {
   /**
-   * @function Updates the user document in MongoDB with their ballot & date of vote
+   * @function get_candidates() Returns the current list of candidates of the election to client
+   *
+   * @param req
+   * @param res
+   */
+  export function get_candidates(req: Request, res: Response): void {
+    res.status(200).send({ status: 200, data: CANDIDATES });
+  }
+
+  /**
+   * @function submit() Updates the user document in MongoDB with their ballot & date of vote
    *
    * If Error, return 500
    * If No Response (i.e sha value is not found), return 418 as we don't want to handle it
@@ -17,8 +27,10 @@ namespace VoteController {
    * @param req
    * @param res
    */
-  export function submit_form(req: Request, res: Response): void {
+  export function submit(req: Request, res: Response): void {
     const { sha, poll } = req.body;
+    if (!sha || !poll) res.status(400).send({ status: 400, message: 'Invalid Request: missing sha or poll data' });
+
     const UTC: Date = new Date();
     const EST: Date = new Date(UTC.getTime() + -UTC.getTimezoneOffset() * 60 * 1000);
 

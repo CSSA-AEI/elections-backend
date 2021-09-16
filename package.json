@@ -14,9 +14,8 @@
     "build": "tsc",
     "postinstall": "tsc",
     "start": "node dist/server.js",
-    "populate": "node dist/src/scripts/populate.js",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "populate": "tsc && node dist/src/scripts/populate.js",
+    "lint": "eslint . --ext .ts --fix",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "engines": {

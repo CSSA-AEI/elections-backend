@@ -1,8 +1,7 @@
 .DS_Store
 
-# CSV Files & Voter Script
+# CSV Files
 assets/*.xlsx
-scripts/
 
 # Logs
 logs
