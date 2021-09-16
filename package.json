@@ -44,7 +44,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "mailgun-js": "^0.22.0",
     "nodemon": "^2.0.6",
-    "pac-resolver": "5.0.0",
     "prettier": "^2.2.1",
     "read-excel-file": "^5.0.0",
     "rimraf": "^3.0.2",
