@@ -105,11 +105,11 @@ async function generateVoters(path: string): Promise<void> {
 
         const name: string = studentEntry.prenomofficiel;
         const email: string = studentEntry.courriel;
-        const hash: string = studentEntry.id;
-        const sha: string = generateSha(email, hash);
+        const id: string = studentEntry.id;
+        const sha: string = generateSha(email, id);
         const link = `https://vote.cssa-aei.ca/vote/${sha}`;
 
-        const user = new UserObject({ sha, hash, salt: 'SALT', hasVoted: false });
+        const user = new UserObject({ sha, hash: id, salt: 'SALT', hasVoted: false });
         await user.save();
 
         await mg.messages().send({
