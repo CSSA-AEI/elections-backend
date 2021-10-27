@@ -6,7 +6,31 @@ import { CallbackError } from 'mongoose';
 import { UserObject } from '../../../model/User';
 import CANDIDATES from '../../../../assets/candidates';
 
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
+  require('dotenv').config();
+}
+
+const startEST: Date = new Date(process.env.VOTING_START!);
+const deadlineEST: Date = new Date(process.env.VOTING_DEADLINE!);
+
 namespace VoteController {
+  /**
+   * @function get_voting_status() Returns whether voting is open, closed, or hasn't started.
+   *
+   * @param req
+   * @param res
+   */
+  export function get_voting_status(req: Request, res: Response): void {
+    const UTC: Date = new Date();
+    const todayEST: Date = new Date(UTC.getTime() + -UTC.getTimezoneOffset() * 60 * 1000);
+    const votingHasNotStarted: boolean = todayEST.valueOf() - startEST.valueOf() < 0;
+    const deadlineHasPassed: boolean = deadlineEST.valueOf() - todayEST.valueOf() < 0;
+    const data = votingHasNotStarted ? 'voteStart' : deadlineHasPassed ? 'voteEnd' : 'voteOpen';
+
+    res.status(200).send({ status: 200, data });
+  }
+
   /**
    * @function get_candidates() Returns the current list of candidates of the election to client
    *

@@ -22,6 +22,8 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 
 ### Vote Routes
 
+- GET `/api/vote/status` --> Returns whether voting is open, closed, or hasn't started.
+
 - GET `/api/vote/candidates` --> Returns the list of candidates to client.
 
 - POST `/api/vote/submit` with body: `sha` & `hash` & `poll` --> (_voterAuth_) --> Inserts the voter's `poll` data in DB.
