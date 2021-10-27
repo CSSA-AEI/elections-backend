@@ -19,7 +19,7 @@
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "engines": {
-    "node": "^16.9.1",
+    "node": "17.0.1",
     "yarn": "^1.22.10"
   },
   "dependencies": {

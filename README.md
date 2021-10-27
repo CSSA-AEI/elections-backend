@@ -9,7 +9,7 @@ Server layer built with `Typescript`, `Node JS`, `Express` and `Mongoose`.
 ## Quick Setup
 
 - Set up `.env`, as per the `.env.example` file (contact it@cssa-aei.ca for assistance)
-- Run `yarn install`
+- Run `yarn install` (requires `node 17.0.1`)
 - Run `yarn dev`
 
 ## Routes
