@@ -5,64 +5,12 @@ export const schema = {
     prop: 'id',
     type: String,
   },
-  SESSION: {
-    prop: 'session',
-    type: String,
-  },
-  'PRÉNOM OFFICIEL': {
-    prop: 'prenomofficiel',
-    type: String,
-  },
   'NOM OFFICIEL': {
     prop: 'nomofficiel',
     type: String,
   },
-  'PRÉNOM PRÉFÉRÉ': {
-    prop: 'prenomprefere',
-    type: String,
-  },
-  'NOM PRÉFÉRÉ': {
-    prop: 'nomprefere',
-    type: String,
-  },
   COURRIEL: {
     prop: 'courriel',
-    type: String,
-  },
-  'LANGUE DE COMMUNICATION': {
-    prop: 'langue',
-    type: String,
-  },
-  'CHARGE ACADÉMIQUE': {
-    prop: 'langue',
-    type: String,
-  },
-  GROUP: {
-    prop: 'group',
-    type: String,
-  },
-  'PROG DESCR': {
-    prop: 'program',
-    type: String,
-  },
-  DISCIPLINE: {
-    prop: 'discipline',
-    type: String,
-  },
-  'PLAN DESCR': {
-    prop: 'plan',
-    type: String,
-  },
-  LEVEL: {
-    prop: 'level',
-    type: String,
-  },
-  'RSG 1': {
-    prop: 'rsg1',
-    type: String,
-  },
-  'RSG 2': {
-    prop: 'rsg2',
     type: String,
   },
 };
