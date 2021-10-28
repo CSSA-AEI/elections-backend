@@ -45,6 +45,7 @@
     "mailgun-js": "^0.22.0",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
+    "prompt-sync": "^4.2.0",
     "read-excel-file": "^5.0.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.2.1",
