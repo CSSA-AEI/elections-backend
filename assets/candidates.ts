@@ -2,7 +2,7 @@
 
 /**
  * An object containing the candidates for the current election
- * Must follow the format mentioned in the README (i.e {[name: 'First Name Last Name', val: 'Last Name']})
+ * Must follow the format mentioned in the README (i.e {[name: 'FirstName LastName', val: 'lastname']})
  * 
  * PRES - President
  * FNCE - VP Finance
@@ -26,17 +26,17 @@
  * ]
  */
 const CANDIDATES = {
-  PRES: [/*{ name: 'First Last', val: 'last' }*/],
-  FNCE: [/*{ name: 'First Last', val: 'last' }*/],
-  ACDM: [/*{ name: 'First Last', val: 'last' }*/],
-  COMS: [{ name: 'Michel Moore', val: 'moore' }],
-  INTR: [/*{ name: 'First Last', val: 'last' }*/],
-  EXTR: [/*{ name: 'First Last', val: 'last' }*/],
-  SOCL: [/*{ name: 'First Last', val: 'last' }*/],
-  PHIL: [/*{ name: 'First Last', val: 'last' }*/],
-  EQUT: [/*{ name: 'First Last', val: 'last' }*/],
-  EXAF: [/*{ name: 'First Last', val: 'last' }*/],
-  INTE: [/*{ name: 'First Last', val: 'last' }*/],
+  PRES: [{ name: 'FirstName LastName', val: 'lastname' }],
+  FNCE: [{ name: 'FirstName LastName', val: 'lastname' }],
+  ACDM: [{ name: 'FirstName LastName', val: 'lastname' }],
+  COMS: [{ name: 'FirstName LastName', val: 'lastname' }],
+  INTR: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EXTR: [{ name: 'FirstName LastName', val: 'lastname' }],
+  SOCL: [{ name: 'FirstName LastName', val: 'lastname' }],
+  PHIL: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EQUT: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
+  INTE: [{ name: 'FirstName LastName', val: 'lastname' }],
 };
 
 export default CANDIDATES;
