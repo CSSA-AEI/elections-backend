@@ -1,6 +1,7 @@
 /* eslint-disable */
-import mailgun from 'mailgun-js';
 import crypto from 'crypto';
+import formData from 'form-data';
+import Mailgun from 'mailgun.js';
 
 import '../database';
 import { schema, delay, getHTMLMessage } from './utils';
@@ -22,7 +23,7 @@ const VOTING_END_EST = new Date(process.env.VOTING_DEADLINE!);
 const VOTING_START_UTC: string = new Date(VOTING_START_EST.getTime() + new Date().getTimezoneOffset() * 60 * 1000).toUTCString();
 const VOTING_DURATION_HOURS = (Math.abs((VOTING_END_EST as any) - (VOTING_START_EST as any)) / 36e5).toString();
 
-const mg = mailgun({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN });
+const mg = new Mailgun(formData).client({ username: 'api', key: MAILGUN_API_KEY });
 
 function generateSha(name: string, email: string, id: string): string {
   const length = 16;
@@ -62,7 +63,7 @@ async function generateVoters(path: string, checkpoint: number, enableMongo: boo
           await user.save();
 
           if (enableMailgun) {
-            const message = await mg.messages().send({
+            const message = await mg.messages.create(MAILGUN_DOMAIN, {
               'o:deliverytime': VOTING_START_UTC,
               from: ADMIN_EMAIL,
               to: email,
@@ -78,7 +79,7 @@ async function generateVoters(path: string, checkpoint: number, enableMongo: boo
         console.log(err);
       }
     }
-    console.log('Done.');
+    console.log('Done (you can now safely exit this process with Ctrl + C)');
   });
 }
 

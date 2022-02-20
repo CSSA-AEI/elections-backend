@@ -57,8 +57,8 @@ const voterAuth = function (req: Request, res: Response, next: NextFunction): vo
         } else if (!same) {
           res.status(401).send({ status: 401, message: 'Invalid login' });
         } else if (user.hasVoted) {
-          const day = `${user.voteDate.getMonth() + 1}-${user.voteDate.getDate()}`;
-          const time = user.voteDate.toISOString().split('T')[1].split('.')[0];
+          const day = `${user.voteTime.getMonth() + 1}-${user.voteTime.getDate()}`;
+          const time = user.voteTime.toISOString().split('T')[1].split('.')[0];
 
           res.status(200).send({
             status: 200,

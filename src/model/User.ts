@@ -13,7 +13,7 @@ export interface IUser extends Document {
   hash: string;
   salt: string;
   hasVoted: boolean;
-  voteDate: Date;
+  voteTime: Date;
   poll: typeof PollSchema;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   isCorrectHash(firstHash: string, callback: any): any;
@@ -49,7 +49,7 @@ const UserSchema = new Schema({
   hash: { type: String, required: true, unique: true },
   salt: { type: String, required: true },
   hasVoted: { type: Boolean, required: true, default: false },
-  voteDate: { type: Date, default: null },
+  voteTime: { type: Date, default: null },
   poll: { type: PollSchema, default: null },
 });
 
