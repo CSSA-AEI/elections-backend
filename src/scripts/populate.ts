@@ -84,7 +84,7 @@ async function generateVoters(path: string, checkpoint: number, enableMongo: boo
 }
 
 (async () => {
-  const PATH = '/../../../assets/test.xlsx';
+  const PATH = '/../../../assets/exec.xlsx';
   const ENABLE_MONGO = true;
   const ENABLE_MAILGUN = true;
 
