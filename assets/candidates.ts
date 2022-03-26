@@ -43,7 +43,7 @@
 
 const CANDIDATES = {
   PRES: [{ name: 'Elian Karpov', val: 'karpov' }],
-  FNCE: [{ name: 'Ali Baza Bhangu', val: 'bhangu' }],
+  FNCE: [{ name: 'Ali Raza Bhangu', val: 'bhangu' }],
   ACDM: [{ name: 'Mustafa Ahmed', val: 'ahmed' }],
   COMS: [/*{ name: 'FirstName LastName', val: 'lastname' }*/],
   INTR: [{ name: 'Christiane Meherete', val: 'meherete' }],
