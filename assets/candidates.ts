@@ -41,18 +41,19 @@
 //   INTE: [{ name: 'Goomba', val: 'goomba' }],
 // };
 
+/** @note - Be aware in case of identical last names within the same position! */
 const CANDIDATES = {
-  PRES: [{ name: 'Elian Karpov', val: 'karpov' }],
-  FNCE: [{ name: 'Ali Raza Bhangu', val: 'bhangu' }],
-  ACDM: [{ name: 'Mustafa Ahmed', val: 'ahmed' }],
-  COMS: [/*{ name: 'FirstName LastName', val: 'lastname' }*/],
-  INTR: [{ name: 'Christiane Meherete', val: 'meherete' }],
-  EXTR: [{ name: 'Kian Salehi', val: 'salehi' }],
-  SOCL: [{ name: 'Tomer Szulsztein', val: 'szulsztein' }],
-  PHIL: [{ name: 'Yasin Elmi', val: 'elmi' }],
-  EQUT: [{ name: 'Tristan Pender', val: 'pender' }],
-  EXAF: [{ name: 'Vanisha Bagga', val: 'bagga' }],
-  INTE: [{ name: 'Anthony Mahanna', val: 'mahanna' }],
+  PRES: [{ name: 'FirstName LastName', val: 'lastname' }],
+  FNCE: [{ name: 'FirstName LastName', val: 'lastname' }],
+  ACDM: [{ name: 'FirstName LastName', val: 'lastname' }],
+  COMS: [{ name: 'FirstName LastName', val: 'lastname' }],
+  INTR: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EXTR: [{ name: 'FirstName LastName', val: 'lastname' }],
+  SOCL: [{ name: 'FirstName LastName', val: 'lastname' }],
+  PHIL: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EQUT: [{ name: 'FirstName LastName', val: 'lastname' }],
+  EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
+  INTE: [{ name: 'FirstName LastName', val: 'lastname' }],
 };
 
 export default CANDIDATES;
