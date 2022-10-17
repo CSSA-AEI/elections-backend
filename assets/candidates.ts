@@ -52,7 +52,8 @@ const CANDIDATES = {
   COMS: [
     { name: 'Connor States', val: 'states' },
     { name: 'Natasa Bolic', val: 'bolic' },
-    { name: 'Manaal Mujeebuddin', val: 'mujeebuddin' }
+    { name: 'Manaal Mujeebuddin', val: 'mujeebuddin' },
+    { name: 'Rakshita Mathur', val: 'mathur' }
   ],
   // INTR: [{ name: 'FirstName LastName', val: 'lastname' }],
   // EXTR: [{ name: 'FirstName LastName', val: 'lastname' }],
@@ -65,7 +66,7 @@ const CANDIDATES = {
   ],
   EQUT: [
     { name: 'Audrey Koffi', val: 'koffi' },
-    { name: 'Meet Mehta', val: 'mehta'},
+    { name: 'Meet Mehta', val: 'mehta' },
     { name: 'Meriem Mostefai', val: 'mostefai' },
   ],
   // EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
