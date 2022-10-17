@@ -59,12 +59,13 @@ const CANDIDATES = {
   // SOCL: [{ name: 'FirstName LastName', val: 'lastname' }],
   // PHIL: [{ name: 'FirstName LastName', val: 'lastname' }],
   LGST: [
-    { name: 'Justin Wang', val: 'wang' },
     { name: 'Evan Freayh', val: 'freayh'},
+    { name: 'Justin Wang', val: 'wang' },
     { name: 'Tim Mao', val: 'mao' },
   ],
   EQUT: [
     { name: 'Audrey Koffi', val: 'koffi' },
+    { name: 'Meet Mehta', val: 'mehta'},
     { name: 'Meriem Mostefai', val: 'mostefai' },
   ],
   // EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
