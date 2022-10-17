@@ -45,18 +45,28 @@
 const CANDIDATES = {
   // PRES: [{ name: 'FirstName LastName', val: 'lastname' }],
   // FNCE: [{ name: 'FirstName LastName', val: 'lastname' }],
-  ACDM: [{ name: 'Aydin Yalcinkaya', val: 'yalcinkaya' }],
-  COMS: [{ name: 'Manaal Mujeebuddin', val: 'mujeebuddin' }],
+  ACDM: [
+    { name: 'Aydin Yalcinkaya', val: 'yalcinkaya' },
+    { name: 'Zahra Suleymanova', val: 'suleymanova'}
+  ],
+  COMS: [
+    { name: 'Connor States', val: 'states' },
+    { name: 'Natasa Bolic', val: 'bolic' },
+    { name: 'Manaal Mujeebuddin', val: 'mujeebuddin' }
+  ],
   // INTR: [{ name: 'FirstName LastName', val: 'lastname' }],
   // EXTR: [{ name: 'FirstName LastName', val: 'lastname' }],
   // SOCL: [{ name: 'FirstName LastName', val: 'lastname' }],
   // PHIL: [{ name: 'FirstName LastName', val: 'lastname' }],
   LGST: [
     { name: 'Justin Wang', val: 'wang' },
+    { name: 'Evan Freayh', val: 'freayh'},
     { name: 'Tim Mao', val: 'mao' },
-    { name: 'Evan Freayh', val: 'freayh'}
   ],
-  EQUT: [{ name: 'Meriem Mostefai', val: 'mostefai' }],
+  EQUT: [
+    { name: 'Audrey Koffi', val: 'koffi' },
+    { name: 'Meriem Mostefai', val: 'mostefai' },
+  ],
   // EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
   // INTE: [{ name: 'FirstName LastName', val: 'lastname' }],
 };
