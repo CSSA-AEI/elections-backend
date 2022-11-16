@@ -19,8 +19,8 @@
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "engines": {
-    "node": "^17.0.1",
-    "yarn": "^1.22.10"
+    "node": ">=17.0.0",
+    "yarn": ">=1.22.10"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -33,7 +33,6 @@
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
     "@types/express-rate-limit": "^5.1.1",
-    "@types/mailgun-js": "^0.22.11",
     "@types/mongoose": "^5.10.3",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
@@ -43,7 +42,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "form-data": "^4.0.0",
-    "mailgun.js": "^4.2.2",
+    "mailgun.js": "^4.2.3",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
     "prompt-sync": "^4.2.0",

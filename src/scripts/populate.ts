@@ -26,23 +26,12 @@ const VOTING_DURATION_HOURS = (Math.abs((VOTING_END_EST as any) - (VOTING_START_
 const mg = new Mailgun(formData).client({ username: 'api', key: MAILGUN_API_KEY });
 
 function generateSha(name: string, email: string, id: string): string {
-  const length = 16;
-  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*-{}><';
-
-  let random = '';
-  for (let i = 0, n = charset.length; i < length; ++i) random += charset.charAt(Math.floor(Math.random() * n));
-
-  return crypto.createHash('sha256').update(`${process.env.SERVER_SECRET}${name}${email}${id}${random}`).digest('hex');
+  return crypto.createHash('sha256').update(`${process.env.SERVER_SECRET}${name}${email}${id}`).digest('hex');
 }
 
-async function generateVoters(path: string, checkpoint: number, enableMongo: boolean, enableMailgun: boolean): Promise<void> {
-  readXlsxFile(__dirname + path, { schema }).then(async ({ rows, errors }: { rows: any; errors: any }) => {
+async function generateVoters(path: string, enableMongo: boolean, enableMailgun: boolean): Promise<void> {
+  readXlsxFile(__dirname + path, { schema }).then(async ({ rows }: { rows: any; errors: any }) => {
     for (let i = 0; i < rows.length; i++) {
-      if (i <= checkpoint) {
-        console.log('Skipping: ', i + 1);
-        continue;
-      }
-
       try {
         const studentEntry: any = rows[i];
 
@@ -53,28 +42,35 @@ async function generateVoters(path: string, checkpoint: number, enableMongo: boo
         const sha: string = generateSha(name, email, id);
         const link = `https://vote.cssa-aei.ca/vote/${sha}`;
 
-        if (enableMongo) {
-          const user = new UserObject({
-            sha,
-            hash: id,
-            salt: 'SALT',
-            hasVoted: false,
-          });
-          await user.save();
-
-          if (enableMailgun) {
-            const message = await mg.messages.create(MAILGUN_DOMAIN, {
-              'o:deliverytime': VOTING_START_UTC,
-              from: ADMIN_EMAIL,
-              to: email,
-              subject: 'VOTE(Z): CSSA-AÉI',
-              html: getHTMLMessage(link, VOTING_DURATION_HOURS),
+        const user = await UserObject.findOne({ sha });
+        if (!user) {
+          if (enableMongo) {
+            const user = new UserObject({
+              sha,
+              hash: id,
+              salt: 'SALT',
+              hasVoted: false,
             });
-            console.log(message);
-          }
-        }
 
-        console.log('Success: ', i + 1);
+            await user.save();
+
+            if (enableMailgun) {
+              const message = await mg.messages.create(MAILGUN_DOMAIN, {
+                'o:deliverytime': VOTING_START_UTC,
+                from: ADMIN_EMAIL,
+                to: email,
+                subject: 'VOTE(Z): CSSA-AÉI',
+                html: getHTMLMessage(link, VOTING_DURATION_HOURS),
+              });
+
+              console.log(message);
+            }
+          }
+
+          console.log('Success: ', i + 1);
+        } else {
+          console.log('Skipping: ', i + 1);
+        }
       } catch (err: any) {
         console.log(err);
       }
@@ -115,5 +111,5 @@ async function generateVoters(path: string, checkpoint: number, enableMongo: boo
     await delay(1000);
   }
 
-  generateVoters(PATH, -1, ENABLE_MONGO, ENABLE_MAILGUN);
+  generateVoters(PATH, ENABLE_MONGO, ENABLE_MAILGUN);
 })();
