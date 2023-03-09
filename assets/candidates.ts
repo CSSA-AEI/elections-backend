@@ -44,25 +44,25 @@
 /** @note - Be aware in case of identical last names within the same position! */
 const CANDIDATES = {
   PRES: [{ name: 'Tomer Szulsztein', val: 'szulsztein' }],
-  // FNCE: [{ name: 'Aashish Suresh', val: 'suresh' }],
-  // ACDM: [{ name: 'Ali Raza Bhangu', val: 'bhangu' }],
+  FNCE: [{ name: 'Aashish Suresh', val: 'suresh' }],
+  ACDM: [{ name: 'Ali Raza Bhangu', val: 'bhangu' }],
   // COMS: [{ name: 'FirstName LastName', val: 'lastname' }],
   INTR: [
     { name: 'Cedric Luiz Dimatulac', val: 'dimatulac' },
-    // { name: 'Rachel Olugbemiro', val: 'olugbemiro' },
-    // { name: 'Sami Hassan', val: 'hassan' },
+    { name: 'Rachel Olugbemiro', val: 'olugbemiro' },
+    { name: 'Sami Hassan', val: 'hassan' },
   ],
-  // EXTR: [
-  //   { name: 'Erik Ang', val: 'ang' },
-  //   { name: 'Zahra Suleymanova', val: 'suleymanova' },
-  // ],
-  // SOCL: [
-  //   { name: 'Meriem Mostefai', val: 'mostefai' },
-  //   { name: 'Alex Ajersch', val: 'ajersch' }
-  // ],
-  // PHIL: [{ name: 'Fay Lee', val: 'lee' }],
-  // LGST: [{ name: 'Tim Mao', val: 'mao' },],
-  // EQUT: [{ name: 'Chelsea Brown', val: 'brown' },],
+  EXTR: [
+    { name: 'Erik Ang', val: 'ang' },
+    { name: 'Zahra Suleymanova', val: 'suleymanova' },
+  ],
+  SOCL: [
+    { name: 'Meriem Mostefai', val: 'mostefai' },
+    { name: 'Alex Ajersch', val: 'ajersch' }
+  ],
+  PHIL: [{ name: 'Fay Lee', val: 'lee' }],
+  LGST: [{ name: 'Tim Mao', val: 'mao' },],
+  EQUT: [{ name: 'Chelsea Brown', val: 'brown' },],
   EXAF: [{ name: 'Angeleeca Jocson', val: 'jocson' }],
   INTE: [{ name: 'Aydin Yalcinkaya', val: 'yalcinkaya' }],
 };
