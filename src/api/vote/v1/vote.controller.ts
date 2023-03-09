@@ -11,8 +11,10 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const startEST: Date = new Date(process.env.VOTING_START!);
-const deadlineEST: Date = new Date(process.env.VOTING_DEADLINE!);
+const startDate: Date = new Date(process.env.VOTING_START!);
+const startDateString: string = startDate.toLocaleString();
+const endDate: Date = new Date(process.env.VOTING_DEADLINE!);
+const endDateString: string = endDate.toLocaleString();
 
 namespace VoteController {
   /**
@@ -24,11 +26,11 @@ namespace VoteController {
   export function get_voting_status(req: Request, res: Response): void {
     const UTC: Date = new Date();
     const todayEST: Date = new Date(UTC.getTime() + -UTC.getTimezoneOffset() * 60 * 1000);
-    const votingHasNotStarted: boolean = todayEST.valueOf() - startEST.valueOf() < 0;
-    const deadlineHasPassed: boolean = deadlineEST.valueOf() - todayEST.valueOf() < 0;
-    const data = votingHasNotStarted ? 'voteStart' : deadlineHasPassed ? 'voteEnd' : 'voteOpen';
+    const votingHasNotStarted: boolean = todayEST.valueOf() - startDate.valueOf() < 0;
+    const deadlineHasPassed: boolean = endDate.valueOf() - todayEST.valueOf() < 0;
+    const votingStatus = votingHasNotStarted ? 'voteStart' : deadlineHasPassed ? 'voteEnd' : 'voteOpen';
 
-    res.status(200).send({ status: 200, data });
+    res.status(200).send({ status: 200, votingStatus, startDateString, endDateString });
   }
 
   /**

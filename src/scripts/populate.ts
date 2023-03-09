@@ -20,7 +20,6 @@ const MAILGUN_DOMAIN: string = process.env.MAILGUN_DOMAIN!;
 const VOTING_START_EST = new Date(process.env.VOTING_START!);
 const VOTING_END_EST = new Date(process.env.VOTING_DEADLINE!);
 
-const VOTING_START_UTC: string = new Date(VOTING_START_EST.getTime() + new Date().getTimezoneOffset() * 60 * 1000).toUTCString();
 const VOTING_DURATION_HOURS = (Math.abs((VOTING_END_EST as any) - (VOTING_START_EST as any)) / 36e5).toString();
 
 const mg = new Mailgun(formData).client({ username: 'api', key: MAILGUN_API_KEY });
@@ -56,7 +55,7 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
 
             if (enableMailgun) {
               const message = await mg.messages.create(MAILGUN_DOMAIN, {
-                'o:deliverytime': VOTING_START_UTC,
+                'o:deliverytime': VOTING_START_EST.toUTCString(),
                 from: ADMIN_EMAIL,
                 to: email,
                 subject: 'VOTE(Z): CSSA-AÉI',
@@ -69,6 +68,7 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
 
           console.log('Success: ', i + 1);
         } else {
+          // User already exists
           console.log('Skipping: ', i + 1);
         }
       } catch (err: any) {
@@ -88,9 +88,8 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
   console.log('\n\n----------------------------------');
   console.log(`PATH: ${PATH}`);
   console.log(`MONGO_URI: ${process.env.MONGO_URI}`);
-  console.log(`VOTING_START_EST: ${VOTING_START_EST.toDateString()}`);
-  console.log(`VOTING_END_EST: ${VOTING_END_EST.toDateString()}`);
-  console.log(`VOTING_START_UTC: ${VOTING_START_UTC}`);
+  console.log(`VOTING_START_EST: ${VOTING_START_EST.toLocaleString()}`);
+  console.log(`VOTING_END_EST: ${VOTING_END_EST.toLocaleString()}`);
   console.log(`VOTING_DURATION_HOURS: ${VOTING_DURATION_HOURS}`);
   console.log(`ADMIN_EMAIL: ${ADMIN_EMAIL}`);
   console.log(`MAILGUN_DOMAIN: ${MAILGUN_DOMAIN}`);
