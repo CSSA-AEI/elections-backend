@@ -19,8 +19,8 @@
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "engines": {
-    "node": ">17.0.0",
-    "yarn": ">1.22.10"
+    "node": ">=17.x",
+    "yarn": "<2.x"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
