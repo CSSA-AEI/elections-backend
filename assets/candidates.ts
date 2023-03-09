@@ -43,34 +43,28 @@
 
 /** @note - Be aware in case of identical last names within the same position! */
 const CANDIDATES = {
-  // PRES: [{ name: 'FirstName LastName', val: 'lastname' }],
-  // FNCE: [{ name: 'FirstName LastName', val: 'lastname' }],
-  ACDM: [
-    { name: 'Aydin Yalcinkaya', val: 'yalcinkaya' },
-    { name: 'Zahra Suleymanova', val: 'suleymanova'}
+  PRES: [{ name: 'Tomer Szulsztein', val: 'szulsztein' }],
+  // FNCE: [{ name: 'Aashish Suresh', val: 'suresh' }],
+  // ACDM: [{ name: 'Ali Raza Bhangu', val: 'bhangu' }],
+  // COMS: [{ name: 'FirstName LastName', val: 'lastname' }],
+  INTR: [
+    { name: 'Cedric Luiz Dimatulac', val: 'dimatulac' },
+    // { name: 'Rachel Olugbemiro', val: 'olugbemiro' },
+    // { name: 'Sami Hassan', val: 'hassan' },
   ],
-  COMS: [
-    { name: 'Connor States', val: 'states' },
-    { name: 'Natasa Bolic', val: 'bolic' },
-    { name: 'Manaal Mujeebuddin', val: 'mujeebuddin' },
-    { name: 'Rakshita Mathur', val: 'mathur' }
-  ],
-  // INTR: [{ name: 'FirstName LastName', val: 'lastname' }],
-  // EXTR: [{ name: 'FirstName LastName', val: 'lastname' }],
-  // SOCL: [{ name: 'FirstName LastName', val: 'lastname' }],
-  // PHIL: [{ name: 'FirstName LastName', val: 'lastname' }],
-  LGST: [
-    { name: 'Evan Freayh', val: 'freayh'},
-    { name: 'Justin Wang', val: 'wang' },
-    { name: 'Tim Mao', val: 'mao' },
-  ],
-  EQUT: [
-    { name: 'Audrey Koffi', val: 'koffi' },
-    { name: 'Meet Mehta', val: 'mehta' },
-    { name: 'Meriem Mostefai', val: 'mostefai' },
-  ],
-  // EXAF: [{ name: 'FirstName LastName', val: 'lastname' }],
-  // INTE: [{ name: 'FirstName LastName', val: 'lastname' }],
+  // EXTR: [
+  //   { name: 'Erik Ang', val: 'ang' },
+  //   { name: 'Zahra Suleymanova', val: 'suleymanova' },
+  // ],
+  // SOCL: [
+  //   { name: 'Meriem Mostefai', val: 'mostefai' },
+  //   { name: 'Alex Ajersch', val: 'ajersch' }
+  // ],
+  // PHIL: [{ name: 'Fay Lee', val: 'lee' }],
+  // LGST: [{ name: 'Tim Mao', val: 'mao' },],
+  // EQUT: [{ name: 'Chelsea Brown', val: 'brown' },],
+  EXAF: [{ name: 'Angeleeca Jocson', val: 'jocson' }],
+  INTE: [{ name: 'Aydin Yalcinkaya', val: 'yalcinkaya' }],
 };
 
 export default CANDIDATES;
