@@ -19,8 +19,8 @@
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "engines": {
-    "node": ">=17.0.0",
-    "yarn": ">=1.22.10"
+    "node": ">17.0.0",
+    "yarn": ">1.22.10"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -28,5 +28,27 @@
     "express-rate-limit": "^5.2.6",
     "http": "^0.0.1-security",
     "mongoose": "^6.0.6"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/express-rate-limit": "^5.1.1",
+    "@types/mongoose": "^5.10.3",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "concurrently": "^6.2.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "form-data": "^4.0.0",
+    "mailgun.js": "8.2.1",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
+    "prompt-sync": "^4.2.0",
+    "read-excel-file": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.1.3"
   }
 }
