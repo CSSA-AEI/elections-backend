@@ -24,7 +24,7 @@ export function delay(ms: number) {
  * @param duration (@example '48')
  * @returns The HTML string to send
  */
-export function getHTMLMessage(link: string, duration: string): string {
+export function getHTMLMessage(link: string, end_date: string): string {
   return `
     <!DOCTYPE html>
     <html>
@@ -98,7 +98,7 @@ export function getHTMLMessage(link: string, duration: string): string {
                                                                     The CSSA Elections are open!<br></br>
                                                                     If you would like to participate in the election, your unique voting link is:<br></br> 
                                                                     <a href=${link}>${link}</a><br></br>
-                                                                    Voting ends in ${duration} hours.<br></br>
+                                                                    Voting ends on ${end_date}.<br></br>
                                                                     Questions or issues? Your point of contact is it@cssa-aei.ca<br></br>
                                                                     Thank you for voting!<br> 
                                                                 </p>
@@ -123,7 +123,7 @@ export function getHTMLMessage(link: string, duration: string): string {
                                                                     Les élections de l'AÉI ont commencé!<br></br>
                                                                     Si vous souhaitez participer à cette élection, votre lien de vote est:<br></br>
                                                                     <a href=${link}>${link}</a><br></br>
-                                                                    La periode de vote se termine dans ${duration} heures.<br></br>
+                                                                    La periode de vote se termine le ${end_date}.<br></br>
                                                                     Questions ou problèmes? Votre point de contact est it@cssa-aei.ca<br></br>
                                                                     Merci pour votre participation!<br>
                                                                 </p>

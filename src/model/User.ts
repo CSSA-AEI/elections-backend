@@ -33,6 +33,7 @@ const PollSchema: Schema = new Schema({
   PHIL: { type: String, required: true, default: null },
   EQUT: { type: String, required: true, default: null },
   EXAF: { type: String, required: true, default: null },
+  LGST: { type: String, required: true, defualt: null },
   INTE: { type: String, required: true, default: null },
 });
 

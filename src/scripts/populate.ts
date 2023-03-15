@@ -20,8 +20,6 @@ const MAILGUN_DOMAIN: string = process.env.MAILGUN_DOMAIN!;
 const VOTING_START_EST = new Date(process.env.VOTING_START!);
 const VOTING_END_EST = new Date(process.env.VOTING_DEADLINE!);
 
-const VOTING_DURATION_HOURS = (Math.abs((VOTING_END_EST as any) - (VOTING_START_EST as any)) / 36e5).toString();
-
 const mg = new Mailgun(formData).client({ username: 'api', key: MAILGUN_API_KEY });
 
 function generateSha(name: string, email: string, id: string): string {
@@ -59,7 +57,7 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
                 from: ADMIN_EMAIL,
                 to: email,
                 subject: 'VOTE(Z): CSSA-AÉI',
-                html: getHTMLMessage(link, VOTING_DURATION_HOURS),
+                html: getHTMLMessage(link, VOTING_END_EST.toLocaleString()),
               });
 
               console.log(message);
@@ -84,13 +82,12 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
   const ENABLE_MONGO = true;
   const ENABLE_MAILGUN = true;
 
-  console.log('ATTENTION: You are about to run a risk-prone script. Review:');
+  console.log('ATTENTION - Review the following:');
   console.log('\n\n----------------------------------');
   console.log(`PATH: ${PATH}`);
   console.log(`MONGO_URI: ${process.env.MONGO_URI}`);
   console.log(`VOTING_START_EST: ${VOTING_START_EST.toLocaleString()}`);
   console.log(`VOTING_END_EST: ${VOTING_END_EST.toLocaleString()}`);
-  console.log(`VOTING_DURATION_HOURS: ${VOTING_DURATION_HOURS}`);
   console.log(`ADMIN_EMAIL: ${ADMIN_EMAIL}`);
   console.log(`MAILGUN_DOMAIN: ${MAILGUN_DOMAIN}`);
   console.log(`MAILGUN_API_KEY: ${MAILGUN_API_KEY}`);
