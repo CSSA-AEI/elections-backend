@@ -13,8 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const startEST: Date = new Date(process.env.VOTING_START!);
-const deadlineEST: Date = new Date(process.env.VOTING_DEADLINE!);
+const startDate: Date = new Date(process.env.VOTING_START!);
+const endDate: Date = new Date(process.env.VOTING_DEADLINE!);
 
 /**
  * @function voterAuth() Responsible for validating a user's authenticity
@@ -31,10 +31,9 @@ const deadlineEST: Date = new Date(process.env.VOTING_DEADLINE!);
  * @returns void
  */
 const voterAuth = function (req: Request, res: Response, next: NextFunction): void {
-  const UTC: Date = new Date();
-  const todayEST: Date = new Date(UTC.getTime() + -UTC.getTimezoneOffset() * 60 * 1000);
-  const votingHasNotStarted: boolean = todayEST.valueOf() - startEST.valueOf() < 0;
-  const deadlineHasPassed: boolean = deadlineEST.valueOf() - todayEST.valueOf() < 0;
+  const now: Date = new Date();
+  const votingHasNotStarted: boolean = now.valueOf() - startDate.valueOf() < 0;
+  const deadlineHasPassed: boolean = endDate.valueOf() - now.valueOf() < 0;
 
   if (votingHasNotStarted) {
     res.status(403).send({ status: 403, message: 'vote-has-not-started' });
