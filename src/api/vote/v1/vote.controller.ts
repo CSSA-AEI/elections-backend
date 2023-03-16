@@ -24,10 +24,9 @@ namespace VoteController {
    * @param res
    */
   export function get_voting_status(req: Request, res: Response): void {
-    const UTC: Date = new Date();
-    const todayEST: Date = new Date(UTC.getTime() + -UTC.getTimezoneOffset() * 60 * 1000);
-    const votingHasNotStarted: boolean = todayEST.valueOf() - startDate.valueOf() < 0;
-    const deadlineHasPassed: boolean = endDate.valueOf() - todayEST.valueOf() < 0;
+    const now: Date = new Date();
+    const votingHasNotStarted: boolean = now.valueOf() - startDate.valueOf() < 0;
+    const deadlineHasPassed: boolean = endDate.valueOf() - now.valueOf() < 0;
     const votingStatus = votingHasNotStarted ? 'voteStart' : deadlineHasPassed ? 'voteEnd' : 'voteOpen';
 
     res.status(200).send({ status: 200, votingStatus, startDateString, endDateString });
