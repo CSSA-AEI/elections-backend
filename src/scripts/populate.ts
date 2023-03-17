@@ -28,16 +28,16 @@ function generateSha(name: string, email: string, id: string): string {
 
 async function generateVoters(path: string, enableMongo: boolean, enableMailgun: boolean): Promise<void> {
   readXlsxFile(__dirname + path, { schema }).then(async ({ rows }: { rows: any; errors: any }) => {
-    // Initialise Delivery Date to 1 hour behind Vote Start Date
+    // Initialise Delivery Date to 30 min behind Vote Start Date
     let DELIVERY_DATE = new Date(VOTING_START_EST);
-    DELIVERY_DATE.setHours(DELIVERY_DATE.getHours() - 1);
+    DELIVERY_DATE.setMinutes(DELIVERY_DATE.getMinutes() - 30);
 
     for (let i = 0; i < rows.length; i++) {
       try {
-        // Set new Delivery Date per every 100 students
-        if (i % 100 === 0) {
-          DELIVERY_DATE.setHours(DELIVERY_DATE.getHours() + 1);
-          console.log("DELIVERY DATE CHANGE: ", DELIVERY_DATE.toLocaleDateString());
+        // Set new Delivery Date for every 50 students
+        if (i % 50 === 0) {
+          DELIVERY_DATE.setMinutes(DELIVERY_DATE.getMinutes() + 30);
+          console.log('DELIVERY DATE CHANGE: ', DELIVERY_DATE.toLocaleDateString());
         }
 
         const studentEntry: any = rows[i];
@@ -70,7 +70,7 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
           console.log('MongoDB Skipping: ', i + 1);
         }
 
-        if (!userHasVoted && enableMailgun) {
+        if (enableMailgun && !userHasVoted) {
           const message = await mg.messages.create(MAILGUN_DOMAIN, {
             'o:deliverytime': DELIVERY_DATE.toUTCString(),
             from: ADMIN_EMAIL,
