@@ -28,8 +28,15 @@ function generateSha(name: string, email: string, id: string): string {
 
 async function generateVoters(path: string, enableMongo: boolean, enableMailgun: boolean): Promise<void> {
   readXlsxFile(__dirname + path, { schema }).then(async ({ rows }: { rows: any; errors: any }) => {
+    // Initialise Delivery Date to 1 hour behind Vote Start Date
+    let DELIVERY_DATE = new Date(VOTING_START_EST);
+    DELIVERY_DATE.setHours(DELIVERY_DATE.getHours() - 1);
+
     for (let i = 0; i < rows.length; i++) {
       try {
+        // Set new Delivery Date per every 100 students
+        if (i % 100 === 0) DELIVERY_DATE.setHours(DELIVERY_DATE.getHours() + 1);
+
         const studentEntry: any = rows[i];
 
         const id: string = studentEntry.id;
@@ -53,7 +60,7 @@ async function generateVoters(path: string, enableMongo: boolean, enableMailgun:
 
             if (enableMailgun) {
               const message = await mg.messages.create(MAILGUN_DOMAIN, {
-                'o:deliverytime': VOTING_START_EST.toUTCString(),
+                'o:deliverytime': DELIVERY_DATE.toUTCString(),
                 from: ADMIN_EMAIL,
                 to: email,
                 subject: 'VOTE(Z): CSSA-AÉI',
